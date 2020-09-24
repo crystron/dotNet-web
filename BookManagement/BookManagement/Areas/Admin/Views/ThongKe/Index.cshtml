@@ -1,0 +1,44 @@
+﻿@using BookManagement.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Sach>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<div class="box-body">
+    <table id="example2" class="table table-bordered table-hover">
+        <caption style="text-align:center"><i><b>DANH SÁCH TỒN KHO</b></i></caption>
+        <thead>
+            <tr>
+                <th>Mã SP</th>
+                <th>Tên sản phẩm</th>
+                <th>Giá bán</th>
+                <th>Số lượng</th>
+                <th>Ảnh</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MaSach</td>
+                    <td>
+                        @item.TenSach
+                    </td>
+                    <td>@item.GiaTien VND</td>
+                    <td>@item.SL</td>
+                    <td> <img src="@Url.Content("/Assets/Images/"+@item.Hinh)" style="width:70px;height:70px;" alt="Chưa có ảnh" /></td>     
+                </tr>
+            }
+
+
+        </tbody>
+        <tfoot>
+            <tr></tr>
+        </tfoot>
+    </table>
+    @Html.PagedListPager(Model, pagenumber => Url.Action("Index", new { pagenumber }))
+</div>

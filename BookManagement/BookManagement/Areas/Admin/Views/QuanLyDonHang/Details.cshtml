@@ -1,0 +1,36 @@
+﻿@using BookManagement.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<ChiTietDH_Result>
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<div class="box-body">
+    <table id="example2" class="table table-bordered table-hover">
+        <caption style="text-align:center"><i><b>Tình Trạng Đơn Hàng</b></i></caption>
+        <thead>
+            <tr>
+                <th>Ten Khách Hàng</th>
+                <th>Tên Sách</th>
+                <th>Số Lượng</th>
+                <th>Giá Tiền</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.TenKh</td>
+                    <td>@item.TenSach</td>
+                    <td>@item.SL</td>
+                    <td>@item.GiaTien VNĐ</td>                    
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr></tr>
+        </tfoot>
+    </table>
+    @Html.PagedListPager(Model, pagenumber => Url.Action("Index", new { pagenumber }))
+</div>

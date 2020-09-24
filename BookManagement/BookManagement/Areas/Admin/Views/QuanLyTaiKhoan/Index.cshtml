@@ -1,0 +1,49 @@
+﻿@using BookManagement.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<TaiKhoan>
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<div class="box-body">
+    <div class="panel-heading">
+        @Html.ActionLink("Thêm mới Tài Khoản", "Create", "QuanLyTaiKhoan")
+    </div>
+    <table id="example2" class="table table-bordered table-hover">
+        <caption style="text-align:center"><i><b>DANH SÁCh TÀI KHOẢN</b></i></caption>
+        <thead>
+            <tr>
+                <th>Mã Tài Khoản</th>
+                <th>Tên Tài Khoản</th>
+                <th>Tên Hiển Thị</th>
+                <th>Mật Khẩu</th>
+                <th>Email</th>
+                <th>Quyền</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><a href="/Admin/QuanLyTaiKhoan/Details/@item.MaTK">@item.MaTK</td>
+                    <td>@item.TenTK</td>
+                    <td>@item.TenHienThi</td>
+                    <td>@item.MatKhau</td>
+                    <td>@item.Email</td>
+                    <td>@item.Quyen</td>
+                    <td style="text-align:center;"><a href="/Admin/QuanLyTaiKhoan/Edit/@item.MaTK"><span class="glyphicon glyphicon-edit"></span></a>--<a href="/Admin/QuanLyTaiKhoan/Delete/@item.MaTK" onclick="return confirm('Bạn có muốn xóa ?')"><span class="glyphicon glyphicon-trash"></span></a>--<a href="/Admin/QuanLyTaiKhoan/ShowHistory"><span class="glyphicon glyphicon-th-list"></span></a></td>
+                </tr>
+            }
+
+
+        </tbody>
+        <tfoot>
+            <tr></tr>
+        </tfoot>
+    </table>
+    @Html.PagedListPager(Model, pagenumber => Url.Action("Index", new { pagenumber }))
+</div>

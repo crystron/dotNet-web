@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cb9a1fbc114a4de08efc9234407134c5" Name="Diagram1">
+        <EntityTypeShape EntityType="BookManagementModel.ChiTietGioHang" Width="1.5" PointX="5.25" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.CTPhieu" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.DanhMuc" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.GioHang" Width="1.5" PointX="3" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.KhachHang" Width="1.5" PointX="0.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.NhaCungCap" Width="1.5" PointX="0.75" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.NhanVien" Width="1.5" PointX="0.75" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.NXB" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.PhieuNhap" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.Sach" Width="1.5" PointX="3" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.SaveHistory" Width="1.5" PointX="5.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.TacGia" Width="1.5" PointX="0.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.TaiKhoan" Width="1.5" PointX="2.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="BookManagementModel.TheLoai" Width="1.5" PointX="0.75" PointY="12.625" IsExpanded="true" />
+        <AssociationConnector Association="BookManagementModel.FK_CTGH_GH" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_CTGH_Sach" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_CTP_PN" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_CTP_Sach" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_Sach_DanhMuc" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_CTGH_KH" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_PN_NCC" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_PN_NV" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_Sach_NXB" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_Sach_TG" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_Sach_TL" ManuallyRouted="false" />
+        <AssociationConnector Association="BookManagementModel.FK_TK_CTTK" />
+        <EntityTypeShape EntityType="BookManagementModel.ChiTietTK" Width="1.5" PointX="7.375" PointY="0.75" />
+        <AssociationConnector Association="BookManagementModel.FK_TK_CTTK1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

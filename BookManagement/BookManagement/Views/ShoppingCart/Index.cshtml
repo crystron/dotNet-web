@@ -1,0 +1,72 @@
+﻿@model IEnumerable<BookManagement.Models.ItemCart>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout2.cshtml";
+}
+<div class="container">
+    <table id="example2" class="table table-bordered table-hover">
+        <caption style="text-align:center"><i><b>Danh Sách Sản Phẩm Đã Mua</b></i></caption>
+        <thead>
+            <tr>
+                <th>Mã sản phẩm</th>
+                <th>Tên sản phẩm</th>
+                <th>Ảnh</th>
+                <th>Số lượng</th>
+                <th>Giá thành</th>
+                <th>Thành tiên</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.sach.MaSach</td>
+                    <td>
+                        @item.sach.TenSach
+                    </td>
+                    <td> <img src="@Url.Content("/Assets/Images/"+@item.sach.Hinh)" style="width:70px;height:70px;" alt="Chưa có ảnh" /></td>
+                    <td align="center">
+                        @using (Html.BeginForm("Update", "ShoppingCart", FormMethod.Post))
+                        {
+                            <input type="hidden" value="@item.sach.MaSach" name="MaSach" />
+                            <input type="number" max="100" min="1" value="@item.SoLuong" name="soluong" id="soluong" onchange="return loi()" /><input type="submit" value="OK" />
+                        }
+
+                    </td>
+                    <td>@item.sach.GiaTien</td>
+                    <td>@item.thanhtien().ToString()</td>
+                    <td><a href="/ShoppingCart/Delete/@item.sach.MaSach">Xóa</a></td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+    <div>
+        <div class="col-lg-4">
+            <span class="text-info">
+                Tổng tiền:@ViewBag.tongtien<br />
+                Số lượng : @ViewBag.soluong
+            </span>
+        </div>
+        <div class="col-lg-8 text-right">
+            <a href="/Home/Index"><img src="@Url.Content("/Assets/Images/cart_btn_2.png")" alt="no" /></a>
+            <a href="/ShoppingCart/ThanhToan"><img src="@Url.Content("/Assets/Images/cart_btn_3.png")" alt="no" /></a>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript">
+    function loi() {
+        if (document.getElementById("SoLuong").value.length<=0) {
+            document.getElementById("SoLuong").value = 1;
+            alert("Số lượng không hợp lệ ! Vui lòng nhập số lượng");
+        }
+        if (document.getElementById("SoLuong").value < 0 || document.getElementById("SoLuong").value > 100) {
+            document.getElementById("SoLuong").value = 1;
+            alert("Số lượng không hợp lệ ! Bạn chỉ đươc mua từ 1->100 sản phẩm");
+        }
+    }
+
+</script>
+

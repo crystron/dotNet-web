@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BookManagement.Models.SaveHistory>
+
+@{
+    ViewBag.Title = "ShowHistory";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<div class="box-body">
+    <div class="panel-heading">
+        @Html.ActionLink("Quay Lại", "Index")
+    </div>
+    <table id="example2" class="table table-bordered table-hover">
+        <caption style="text-align:center"><i><b>LỊCH SỬ CHỈNH SỬA</b></i></caption>
+        <thead>
+            <tr>
+                <th>Mã</th>
+                <th>Ngày chỉnh sửa</th>
+                <th>Nội dung thay đổi</th>
+                <th>Hành động</th>
+                <th>Tài khoản</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.AuditCode</td>
+                    <td>@item.AuditDate</td>
+                    <td>@item.Description</td>
+                    <td>@item.EventID</td>
+                    <td>@item.AuditItemID</td>              
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr></tr>
+        </tfoot>
+    </table>
+</div>

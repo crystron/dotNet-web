@@ -1,0 +1,41 @@
+﻿@using BookManagement.Models;
+@using PagedList.Mvc;
+@model IEnumerable<BookManagement.Models.DanhMuc>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<div class="box-body">
+    <div class="panel-heading">
+        @Html.ActionLink("Thêm mới danh Mục", "Create", "QuanLyDanhMuc")
+    </div>
+    <table id="example2" class="table table-bordered table-hover">
+        <caption style="text-align:center"><i><b>DANH SÁCH DANH MUC</b></i></caption>
+        <thead>
+            <tr>
+                <th>Mã DM</th>
+                <th>Tên DM</th>
+                <th>Metatile</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.MaDM</td>
+                    <td>
+                        @item.TenDM
+                    </td>
+                    <td>@item.MetaTitle VND</td>
+                    <td style="text-align:center;"><a href="/Admin/QuanLyDanhMuc/Edit/@item.MaDM"><span class="glyphicon glyphicon-edit"></span></a>--<a href="/Admin/QuanLyDanhMuc/Delete/@item.MaDM" onclick="return confirm('Bạn có muốn xóa ?')"><span class="glyphicon glyphicon-trash"></span></a></td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr></tr>
+        </tfoot>
+    </table>
+</div>

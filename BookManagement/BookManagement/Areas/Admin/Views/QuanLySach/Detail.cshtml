@@ -1,0 +1,91 @@
+﻿@model BookManagement.Models.Sach
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<h2>Detail</h2>
+
+<div>
+    <h4>Sach</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TenSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TenSach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GiaTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GiaTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hinh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hinh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UuTien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UuTien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DanhMuc.TenDM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DanhMuc.TenDM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NXB.TenNXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NXB.TenNXB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TacGia.TenTG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TacGia.TenTG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TheLoai.TenTL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TheLoai.TenTL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaSach }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

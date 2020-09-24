@@ -1,0 +1,5 @@
+﻿@model List<BookManagement.Models.DanhMuc>
+@foreach(var item in Model)
+{
+    <option value="@item.MaDM">@item.TenDM</option>
+}

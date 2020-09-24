@@ -1,0 +1,13 @@
+﻿@using BookManagement.Models;
+@model List<DanhMuc>
+<div class="panel-group category-products" id="accordian">
+    <!--category-productsr-->
+    @foreach (var item in Model)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title"><a href="/danh-muc-san-pham/danh-muc/@item.MaDM">@item.TenDM</a></h4>
+            </div>
+        </div>
+    }
+</div>

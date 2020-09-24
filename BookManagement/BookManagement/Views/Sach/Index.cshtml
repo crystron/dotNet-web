@@ -1,0 +1,36 @@
+﻿@using BookManagement.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<Sach>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MyLayout2.cshtml";
+}
+
+<div class="features_items">
+    <h2 class="title text-center">Danh sách sản phẩm</h2>
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-3">
+            <div class="product-image-wrapper">
+                <div class="single-products">
+                    <div class="productinfo text-center">
+                        @if (@item.UuTien == 3)
+                        {
+                            <img src="/Content/images/product-details/new.jpg" class="newarrival" alt="" style="width:44px;height:22px;" />}
+                        @if (@item.UuTien == 2)
+                        {
+                            <img src="/Content/images/home/sale.png" class="newarrival" alt="" style="width:42px;height:42px;" />
+                        }
+                        <a href="/SanPham/ChiTietSp/?masanpham=@item.MaSach"><img src="@Url.Content("/Assets/Images/" + @item.Hinh)" style="width:184px;height:162px;" alt="Chưa có ảnh" /></a>
+                        <h2>@item.GiaTien VNĐ</h2>
+                        <p>@item.TenSach</p>
+                        <a href="/ShoppingCart/AddItem/@item.MaSach" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào rỏ hàng</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+@Html.PagedListPager(Model, pagenumber => Url.Action("Index", new { pagenumber }))

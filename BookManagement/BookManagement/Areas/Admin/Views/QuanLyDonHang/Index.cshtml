@@ -1,0 +1,49 @@
+﻿@using BookManagement.Models;
+@using PagedList.Mvc;
+@model PagedList.IPagedList<GioHang>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_layoutAdmin.cshtml";
+}
+
+<div class="box-body">
+    <table id="example2" class="table table-bordered table-hover">
+        <caption style="text-align:center"><i><b>Tình Trạng Đơn Hàng</b></i></caption>
+        <thead>
+            <tr>
+                <th>Ngày Đặt Hàng</th>
+                <th>Tình Trạng</th>
+                <th>Thành Tiền</th>
+                <th>Khách Hàng</th>
+                <th>Mã Giỏ Hàng</th>
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.NgayDatHang</td>
+                @if (@item.TinhTrang == false)
+                {
+                    <td>Chưa Giao Hàng</td>
+                }
+                else
+                {
+                   <td>Đã Giao Hàng</td>
+                }
+                <td>@item.TongTien VND</td>
+                <td>@item.MaKH</td>
+                <td>@item.MaGH</td>
+                <td style="text-align:center;"><a href="/Admin/QuanLyDonHang/Details/@item.MaGH"><span class="glyphicon glyphicon-edit"></span></a>
+            </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr></tr>
+        </tfoot>
+    </table>
+    @Html.PagedListPager(Model, pagenumber => Url.Action("Index", new { pagenumber }))
+</div>
+

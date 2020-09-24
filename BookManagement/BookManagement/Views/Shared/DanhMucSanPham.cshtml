@@ -1,0 +1,8 @@
+﻿@using BookManagement.Models;
+@model List<DanhMuc>
+<ul role="menu" class="sub-menu">
+    @foreach (var item in Model)
+    {
+        <li><a href="/danh-muc-san-pham/danh-muc/@item.MaDM">@item.TenDM</a></li>
+    }
+</ul>

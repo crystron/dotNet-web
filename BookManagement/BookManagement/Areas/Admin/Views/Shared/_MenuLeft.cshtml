@@ -1,0 +1,42 @@
+﻿<div class="sidebar-nav navbar-collapse">
+    <ul class="nav" id="side-menu">
+        <li class="sidebar-search">
+            @using (Html.BeginForm("Index", "QuanLySach", FormMethod.Post))
+            {
+                <div class="input-group custom-search-form">
+                    <input type="text" name="strSearch" id="strSearch" class="form-control" placeholder="Tìm kiếm sản phẩm....">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </span>
+                </div>
+            }
+            <!-- /input-group -->
+        </li>
+        <li>
+            <a href="/Admin/QuanLyTaiKhoan/Index"> <i class="fa fa-dashboard fa-fw"></i> Quản Lý Tài Khoản</a>
+        </li>
+        <li>
+            <a href="/Admin/QuanLyDonHang/Index"> <i class="fa fa-dashboard fa-fw"></i> Quản Lý Đơn Hàng</a>
+        </li>
+        <li>
+            <a href="/Admin/QuanLySach/Index"> <i class="fa fa-dashboard fa-fw"></i> Quản Lý Sách</a>
+        </li>
+        <li>
+            <a href="/Admin/QuanLyDanhMuc/Index"><i class="fa fa-dashboard fa-fw"></i> Quản Lý Danh mục</a>
+        </li>
+        <li>
+            <a href="/Admin/QuanLyTheLoai/Index"> <i class="fa fa-dashboard fa-fw"></i> Quản Lý Thể Loại</a>
+        </li>
+        <li>
+            <a href="/Admin/QuanLyTacGia/Index"> <i class="fa fa-dashboard fa-fw"></i> Quản Lý Tác Giả</a>
+        </li>
+        <li>
+            <a href="/Admin/QuanLyNXB/Index"> <i class="fa fa-dashboard fa-fw"></i> Quản Lý Nhà Xuất Bản</a>
+        </li>
+        <li>
+            <a href="/Admin/ThongKe/Index"> <i class="fa fa-dashboard fa-fw"></i> Thông Kê Sách Tồn Kho</a>
+        </li>
+    </ul>
+</div>
